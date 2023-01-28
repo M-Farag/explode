@@ -10,3 +10,4 @@ Breaking a sentence into words based on the space between words
 
 ### Next
 - Returning an array of the extracted words
+- Define the words separator (not just the space)
