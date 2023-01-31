@@ -8,6 +8,6 @@ Breaking a sentence into words based on the space between words
 - I return the words, the the remaining will be the final word
 
 
-### Next
-- Returning an array of the extracted words
-- Define the words separator (not just the space)
+### Next [TODO]
+- [ ] Returning an array of the extracted words
+- [x] ~~ Define the words separator (not just the space) ~~
