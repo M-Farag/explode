@@ -11,24 +11,27 @@ fn main() {
     println!("Please define a separator ?!");
     io::stdin().read_line(&mut separator).expect("Err reading the separator");
     let separator:char = separator.chars().take(1).last().unwrap();
-    explode_string(&sentence, separator);
+    let words = explode_string(&sentence, separator);
+    println!("All words: {:#?}",words);
 }
 
-fn explode_string(some_string:&str,separator:char)
+fn explode_string(some_string:&str,separator:char) -> Vec<&str>
 {
     let bytes = some_string.as_bytes();
     let mut start_index: usize = some_string.len();
     let mut end_index:usize = some_string.len();
+    let mut words: Vec<&str> = Vec::new();
     
     for &byte in bytes.iter().rev() {
         
         if byte == separator as u8 {
-           println!("Word: {}",&some_string[start_index..end_index]);
+           words.push(&some_string[start_index..end_index]);
            end_index = start_index
         }
         start_index -=1;
     }
     
-    println!("Word: {}",&some_string[start_index..end_index]);
+    words.push(&some_string[start_index..end_index]);
+    words
     
 }
