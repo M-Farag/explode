@@ -17,21 +17,17 @@ fn main() {
 
 fn explode_string(some_string:&str,separator:char) -> Vec<&str>
 {
-    let bytes = some_string.as_bytes();
-    let mut start_index: usize = some_string.len();
-    let mut end_index:usize = some_string.len();
+    let mut start_index:usize = 0;
     let mut words: Vec<&str> = Vec::new();
     
-    for &byte in bytes.iter().rev() {
+    for (end_index, letter) in some_string.chars().enumerate() {
         
-        if byte == separator as u8 {
+        if letter == separator {
            words.push(&some_string[start_index..end_index]);
-           end_index = start_index
+           start_index = end_index +1
         }
-        start_index -=1;
     }
-    
-    words.push(&some_string[start_index..end_index]);
+    words.push(&some_string[start_index..]);
     words
     
 }
